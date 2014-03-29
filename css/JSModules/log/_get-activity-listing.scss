@@ -1,0 +1,78 @@
+.js-mod-get-activity-listing{
+  .log-listing-separator{
+    display:table-row;
+    .log-listing-padding{
+      display:table-cell;
+      text-align: center;
+      .log-listing-separator-bar{
+        height:40px;
+        width:2px;
+        display:block;
+        margin:0px 20px;
+        background-color:$color-muted-intense;
+      }
+    }
+  }
+  .log-listing-entry{
+    display:table-row;
+    width:100%;
+    margin:0px 0px 20px 0px;
+    .log-date{
+      display:table-cell;
+      vertical-align: middle;
+      font-weight:bold;
+    }
+    .log-tag{
+      display:table-cell;
+      vertical-align: middle;
+      padding:0px 12px;
+      .log-stopper{
+        width:20px;
+        height:20px;
+        display:block;
+        @include border-right-radius(16px);
+        @include border-left-radius(16px);
+        background-color: $color-muted-intense;
+      }
+    }
+    .log-details{
+      display:table-cell;
+      padding:8px 16px;
+      @include border-right-radius(8px);
+      @include border-left-radius(8px);
+      border:1px solid $color-muted-intense;
+      width:400px;
+      background-color:$color-text-reversed;
+      p{
+        margin:0px;
+      }
+    }
+  }
+
+  .sms-entry{
+    color: $color-brand-yellow;
+    .log-tag .log-stopper{
+        background-color: $color-brand-yellow;
+      }
+    .log-details{
+      border:1px solid $color-brand-yellow;
+      p{
+        margin:0px;
+      }
+    }
+  }
+
+
+  .push-entry{
+    color: $color-brand-dark-blue;
+    .log-tag .log-stopper{
+      background-color: $color-brand-blue;
+    }
+    .log-details{
+      border:1px solid $color-brand-blue;
+      p{
+        margin:0px;
+      }
+    }
+  }
+}

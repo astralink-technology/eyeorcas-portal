@@ -1,0 +1,33 @@
+//Dashboard CSS start here
+.gallery{
+    .gallery-wrapper{
+        margin:0px 0px 0px 30px;
+    }
+    .video-entry{
+        margin:20px;
+        width:320px;
+        .video-tag{
+            padding: 12px;
+            background-color: #FFFFFF;
+            width: 100%;
+            @include box-sizing(border-box);
+        }
+        .bottom{
+            @include border-bottom-radius(4px); 
+            -webkit-box-shadow: 0 1px 1px #555;
+            -moz-box-shadow: 0 1px 1px #555;
+            box-shadow: 0 1px 1px #555;
+        }
+        .top{
+            @include border-top-radius(4px); 
+            h3{
+                line-height: normal;
+                margin: 0px 0px 4px 0px;
+                span{
+                    font-size:12px; 
+                    margin-top:4px;
+                }
+            }
+        }
+    }
+}

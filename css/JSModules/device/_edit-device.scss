@@ -1,0 +1,15 @@
+.js-mod-edit-device{
+  input[type="text"]{
+    width:100%;
+  }
+  label{
+    em{
+      font-weight:normal;
+      color: $color-muted-mid;
+    }
+  }
+  .alert{
+    margin:8px 0px 0px 0px;
+    display:none;
+  }
+}

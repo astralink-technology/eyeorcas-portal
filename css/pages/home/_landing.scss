@@ -1,0 +1,118 @@
+//Landing page CSS start here
+.landing{
+  background-color:$color-text-reversed;
+  h1, h2, h3, h4{
+    font-weight:300;
+  }
+  .jumbotron  {
+    @include background-size(cover);
+    background-image: url('/img/cover.png');
+    background-position: 50 50;
+    float:left;
+    width:100%;
+    padding:0px 32px;
+    margin:0px;
+    h2{
+      font-size:em(32, $text-size-base);
+      margin:8px 0px;
+    }
+  }
+
+  .landing-illustration{
+    margin:32px 0px 0px 0px;
+    text-align:center;
+    .wifi{
+      img{
+        margin:48px 0px 0px 0px;
+      }
+    }
+  }
+
+  .public-controls{
+    float:right;
+    padding:0px 20px;
+    .btn-link{
+      color: $color-text-reversed;
+    }
+  }
+
+  .introduction{
+    text-align:center;
+    color:$color-text-reversed;
+    width:100%;
+    float:left;
+  }
+
+  .get-started{
+    text-align:center;
+    background-color:$color-muted-light;
+    padding:16px 0px 24px 0px;
+    text-align:center;
+    float:left;
+    width:100%;
+    h4{
+      color:$color-muted-dark;
+      font-size:em(20, $text-size-base);
+      margin:8px 0px;
+    }
+  }
+
+  .landing-content{
+    padding:48px 0px;
+    width:100%;
+    float:left;
+    border-bottom:2px solid $color-muted-light;
+    h2{
+      font-size:em(28, $text-size-base);
+      font-weight:300;
+    }
+    p{
+      font-size:em(20, $text-size-base);
+      color:$color-muted-intense;
+      line-height:em(20, $text-size-base);
+      font-weight:300;
+      margin:4px 0px 12px 0px;
+    }
+    .img-wrapper{
+      text-align:center;
+    }
+  }
+
+  .device-management, .real-time{
+    margin:80px 0px 0px 0px;
+  }
+
+  .how-it-works{
+    text-align:center;
+    color:$color-text-reversed;
+    background-color:$color-landing-lightest-blue;
+    float:left;
+    width:100%;
+    .how-it-work-steps{
+      height:240x;
+      padding:40px;
+      .img-wrapper{
+        height:200px;
+        display:block;
+      }
+      h3{
+        font-size:em(24, $text-size-base);
+      }
+    }
+    .connect{
+      background-color:$color-landing-light-blue;
+    }
+    .trigger{
+      background-color:$color-landing-blue;
+      img{
+        margin:20px 0px 0px 0px;
+      }
+    }
+    .notify{
+      background-color:$color-landing-dark-blue;
+      img{
+        margin:8px 0px 0px 0px;
+      }
+    }
+  }
+}

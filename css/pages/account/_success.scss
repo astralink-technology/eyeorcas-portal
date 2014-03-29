@@ -1,0 +1,37 @@
+//signup success CSS start here
+.signup-success{
+        background-color:$color-brand-blue;
+  .section-wrapper{
+    float:left;
+    width:100%;
+  }
+  .signup-success-wrapper{
+    width:480px;
+    margin:0 auto;
+  }
+  h1{
+    color: $color-text-reversed;
+    text-align:center;
+    margin:24px 0px 0px 0px;
+  }
+  p{
+    color: $color-text-reversed;
+    margin:12px 0px;
+    text-align:center;
+  }
+
+    .full-block{
+        margin:0px 0px 8px 0px;
+    }
+  .logo{
+    padding:0px;
+    margin:40px 0px 24px 0px;
+    border-bottom:0px;
+  }
+  .signup-success-controls{
+    float:left;
+    text-align:center;
+    width:100%;
+    margin:12px 0px;
+  }
+}

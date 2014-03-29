@@ -1,0 +1,12 @@
+//boot strap overrides for p2p over here
+@import "buttons";
+@import "form";
+@import "modal";
+@import "dropdown";
+
+/* inline list */
+.list-inline{
+    li{
+        float:left;
+    }
+}

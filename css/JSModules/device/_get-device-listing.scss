@@ -1,0 +1,69 @@
+.js-mod-get-device-listing{
+  li{
+    padding:0px 8px 8px 0px;
+  }
+
+  .device{
+    width:200px;
+    height:200px;
+    padding:20px;
+    background-color:$color-brand-dark-blue;
+    color:$color-text-reversed;
+    @include border-right-radius(4px);
+    @include border-left-radius(4px);
+    text-align:center;
+    img{
+      margin:0px 0px 8px 0px;
+    }
+    label{
+      font-weight:normal;
+      color:$color-text-reversed;
+    }
+  }
+
+  .device:hover{
+    cursor:pointer;
+    background-color:$color-brand-blue;
+  }
+
+  .device-control{
+    width:100%;
+    float:left;
+    ul{
+      float:right;
+      margin:-12px -12px 0px 0px;
+      li{
+        float:left;
+        padding:0px;
+      }
+      .btn-link{
+        color:$color-text-reversed;
+        padding:4px;
+        float:left;
+        .fa:hover{
+          color:$color-brand-fade-yellow;
+        }
+      }
+    }
+  }
+
+  .device-display-blob{
+    width:100%;
+    float:left;
+  }
+
+  .add-device{
+    color:$color-muted-intense;
+    background-color:$color-muted-dark;
+    .fa{
+      font-size:em(140, $text-size-base);
+    }
+    label{
+      color:$color-muted-intense;
+    }
+  }
+
+  .add-device:hover{
+    background-color:$color-muted-mid;
+  }
+}

@@ -1,0 +1,48 @@
+//My Devices CSS start here
+.my-devices{
+  .my-devices-section{
+    float:left;
+    width:100%;
+    margin:0px 0px 20px 0px;
+    p{
+      margin: 0px;
+    }
+  }
+
+  .overview-entry{
+    width:200px;
+    height:200px;
+    padding:20px;
+    background-color:$color-brand-dark-blue;
+    color:$color-text-reversed;
+    @include border-right-radius(4px);
+    @include border-left-radius(4px);
+    text-align:center;
+    label{
+      font-weight:normal;
+    }
+    .denominator-data{
+      font-size:em(52, $text-size-base);
+      border-top:2px solid $color-text-reversed;
+      margin:0px -20px 8px -20px;
+    }
+    .usage-data{
+      font-size:em(40, $text-size-base);
+    }
+    .overview-data{
+      font-size:em(60, $text-size-base);
+      margin: 20px 0px;
+    }
+  }
+
+  .overview-entry:hover{
+    cursor:pointer;
+    background-color:$color-brand-blue;
+  }
+  .overview-entry-warning{
+    background-color:$color-brand-yellow;
+  }
+  .overview-entry-warning:hover{
+    background-color:$color-brand-fade-yellow;
+  }
+}

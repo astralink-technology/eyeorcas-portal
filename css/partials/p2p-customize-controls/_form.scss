@@ -1,0 +1,30 @@
+label{
+  display:block;
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  display:inline-block;
+  height:32px;
+  @include border-right-radius(4px);
+  @include border-left-radius(4px);
+  padding:0px 8px;
+  @include box-sizing(border-box);
+  border:1px solid $color-muted-mid;
+  outline: none;
+}

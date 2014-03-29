@@ -1,0 +1,10 @@
+/* dropdown menu */
+.dropdown-menu{
+  li a{
+    font-family: 'Roboto'
+  }
+  li a:hover{
+    background-color:$color-brand-yellow;
+    color:$color-text-reversed;
+  }
+}

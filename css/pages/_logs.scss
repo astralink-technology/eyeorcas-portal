@@ -1,0 +1,23 @@
+//Logs CSS start here
+.logs{
+
+  .log-listing-entry{
+    display:table-row;
+    .log-date{
+      display:table-cell;
+    }
+    .log-tag{
+      display:table-cell;
+      vertical-align: middle;
+      .log-stopper{
+        width:28px;
+        height:28px;
+        display:block;
+        background-color:$color-muted-light;
+      }
+    }
+    .log-details{
+      display:table-cell;
+    }
+  }
+}

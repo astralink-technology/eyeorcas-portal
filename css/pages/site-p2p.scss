@@ -1,0 +1,66 @@
+//Sass Libraries and Mixin
+@import "../../../cp-front/css/lib/bourbon/bourbon"; //bourbon mixin
+@import "../../../cp-front/css/lib/_normalize"; //IE normalizer
+@import "../../../cp-front/css/lib/_tipsy"; //IE normalizer
+@import "../../../cp-front/css/lib/_compass_mixin"; //compass mixin
+@import "../../../cp-front/css/lib/flags/_flags"; //country flags
+@import "../../../cp-front/css/lib/kendo/_kendo-common"; //kendo common
+@import "../../../cp-front/css/lib/kendo/_kendo-default"; //kendo default
+@import "../../../cp-front/css/lib/customize-controls/_customize-controls";
+
+//Type
+//Astralink
+@import "../partials/_variables";
+@import "../partials/_layout";
+@import "../partials/_type";
+
+//p2p bootstrap controls overrides
+@import "../partials/p2p-customize-controls/_p2p-controls";
+
+/* JS Modules */
+/* Core */
+@import "../JSModules/core/confirm-box";
+@import "../JSModules/core/video-player";
+
+/* Devices */
+@import "../JSModules/device/_add-device";
+@import "../JSModules/device/_edit-device";
+@import "../JSModules/device/_get-device-listing";
+
+/* Medias */
+@import "../JSModules/media/_get-media-listing";
+
+/* Logs */
+@import "../JSModules/log/_get-activity-listing";
+
+/* account pages */
+@import "account/_login";
+@import "account/_signup";
+@import "account/_forgot-password";
+@import "account/_password-old";
+@import "account/_set-password";
+@import "account/_success";
+
+/* device pages */
+@import "device/_my-devices";
+@import "device/_overview";
+@import "device/_device-settings";
+
+/* media pages */
+@import "media/_gallery";
+
+/* logs pages */
+@import "log/_logs";
+
+/*home pages */
+@import "home/_landing";
+@import "_index.scss";
+@import "_gallery.scss";
+
+/*error pages*/
+@import "error/_illegal";
+@import "error/_missing";
+
+@import "_test-platform.scss";
+
+@include sticky-footer(80px,80px);

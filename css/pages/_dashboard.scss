@@ -1,0 +1,106 @@
+//Dashboard CSS start here
+.dashboard{
+    .dashboard-content{
+        width:100%;
+        @include box-sizing(border-box);
+        padding:12px 54px;
+        float:left;
+        min-height:400px;
+        i{
+            float: left;
+            padding: 10px 10px 10px 0px;
+            width: 24px;
+            font-size: 20px;
+            text-align: center;
+        }
+        h3{
+            float:left;
+            width:100%;
+        }
+    }
+    
+    .devices-connected{
+        background-color:$p2p-turquoise;
+        min-height:300px;
+        h3{
+            color:#FFFFFF;
+        }
+    }
+    .camera-listing{
+        background-color:$p2p-mid-blue;
+        min-height:300px;
+        h3{
+            color:#FFFFFF;
+        }
+    }
+    .device{
+        float: left;
+        width: 300px;
+        background-color: #FFFFFF;
+        padding: 20px;
+        @include border-right-radius(8px);
+        @include border-left-radius(8px);
+        margin: 12px 20px 20px 0px;
+        -webkit-box-shadow: 0 1px 3px #555;
+        -moz-box-shadow: 0 1px 3px #555;
+        box-shadow: 0 1px 3px #555;
+        .media{
+            a{
+                width:60px;
+                margin:0px;
+                text-decoration:none;
+                color:#000;
+                .media-object{
+                    .icon{
+                        font-size:50px;
+                        padding:0px;
+                        width:auto;
+                    }
+                    .icon-apple{
+                        color:#999;
+                        font-size:58px;
+                    }
+                    .icon-android{
+                        color:#A4c739;
+                        font-size:58px;
+                    }
+                    .icon-linux{
+                        font-size:54px;
+                    }
+                    .icon-windows{
+                        color:#004C9A;
+                    }
+                }
+            }
+        }
+    }
+    
+    .gauge{
+        float: left;
+        width: 300px;
+        height: 300px;
+        background-color: #FFFFFF;
+        padding: 20px;
+        @include border-right-radius(12px);
+        @include border-left-radius(12px);
+        margin: 12px 20px 20px 0px;
+        -webkit-box-shadow: 0 1px 3px #555;
+        -moz-box-shadow: 0 1px 3px #555;
+        box-shadow: 0 1px 3px #555;
+        h4{
+            text-align: center;
+            font-size: 20px;
+            margin:12px 0px;
+        }
+        .usage-details{
+            width:100%;
+            text-align:center;
+            font-size:16px;
+            margin:4px 0px;
+            font-weight:600;
+            .unit-label{
+                font-weight:300 ;
+            }
+        }
+    }
+}

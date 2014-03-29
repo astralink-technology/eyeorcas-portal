@@ -1,0 +1,48 @@
+<script id="activity-listing-entry" type="text/x-kendo-template">
+
+    # if (messageType != null){ #
+    <li>
+        # if (messageType == "S") {#
+            <div class="log-listing-entry sms-entry">
+        # } else if (messageType == "P"){#
+            <div class="log-listing-entry push-entry">
+        # }#
+            <div class="log-date">${messageCreateDate}</div>
+            <div class="log-tag">
+                <span class="log-stopper"></span>
+            </div>
+            <div class="log-details">
+                <h3>${messageCreateDate}</h3>
+                <p>${message}</p>
+            </div>
+        </div>
+        <div class="log-listing-separator">
+            <div class="log-listing-padding"></div>
+            <div class="log-listing-padding">
+                <span class="log-listing-separator-bar"></span>
+            </div>
+            <div class="log-listing-padding"></div>
+        </div>
+    </li>
+    # } else {#
+    <li>
+        <div class="log-listing-entry">
+            <div class="log-date">${logCreateDate}</div>
+            <div class="log-tag">
+                <span class="log-stopper"></span>
+            </div>
+            <div class="log-details">
+                <h3>${logCreateDate}</h3>
+                <p>${logMessage}</p>
+            </div>
+        </div>
+        <div class="log-listing-separator">
+            <div class="log-listing-padding"></div>
+            <div class="log-listing-padding">
+                <span class="log-listing-separator-bar"></span>
+            </div>
+            <div class="log-listing-padding"></div>
+        </div>
+    </li>
+    # } #
+</script>

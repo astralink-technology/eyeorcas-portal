@@ -1,0 +1,63 @@
+//Login CSS start here
+.login{
+    background-color:$color-brand-blue;
+    .alert{
+      margin:8px 0px 0px 0px;
+      float:left;
+      width:100%;
+    }
+    .alert-main{
+      padding: 0px;
+      margin: 0px;
+      text-align: center;
+      color: $color-brand-red;
+    }
+    .section-wrapper{
+        float:left;
+        width:100%;
+    }
+    .login-form-wrapper{
+        width:320px;
+        margin:0 auto;
+    }
+    label{
+        color: $color-text-reversed;
+        a{
+            color: $color-text-reversed;
+            font-weight:normal;
+       }
+    }
+    .label-group{
+        width:100%;
+        float:left;
+        .password-label{
+            float:left;
+        }
+        .forgotpassword-label{
+            float:right;
+        }
+    }
+    
+    input[type="password"],
+    input[type="email"]
+    {
+        width:100%;
+        float:left;
+    }
+    .btn-login{
+        float:right;
+    }
+    .full-block{
+        margin:0px 0px 8px 0px;
+    }
+  .logo{
+    padding:0px;
+    margin:40px 0px 24px 0px;
+    border-bottom:0px;
+  }
+    .btn-extra-links{
+        padding:0px;
+        color:$color-text-reversed;
+        float:right;
+    }
+}

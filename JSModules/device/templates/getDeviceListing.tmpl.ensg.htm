@@ -1,0 +1,20 @@
+<script id="device-listing-entry" type="text/x-kendo-template">
+    <li>
+        <div class="device" data-deviceid="${deviceId}">
+            <div class="device-control">
+                <ul class="list-inline">
+                    <li><a href="javascript:void(0)" class="btn-link btn-edit-device" data-toggle="modal" data-devicetype="${deviceType}" data-deviceid="${deviceId}" data-devicerelationshipid='${deviceRelationshipId}' data-devicerelationshipvalueid="${deviceRelationshipValueId}" data-devicename="${name}" data-devicecode="${deviceCode}" data-target="\\#editDeviceModal"><i class="fa fa-edit"></i></a></li>
+                    <li><a href="javascript:void(0)" class="btn-link btn-delete-device" data-toggle="modal" data-devicetype="${deviceType}" data-deviceid="${deviceId}" data-devicerelationshipid='${deviceRelationshipId}' data-devicerelationshipvalueid="${deviceRelationshipValueId}" data-devicename="${name}" data-devicecode="${deviceCode}" data-target="\\#deleteDeviceModal"><i class="fa fa-trash-o"></i></a></li>
+                </ul>
+            </div>
+            <div class="device-display-blob">
+                # if (deviceType == "M") { #
+                    <img src="/img/clipcam.png" />
+                # } else if (deviceType == "H") { #
+                    <img src="/img/hxs.png" />
+                # } #
+                <label>${name}</label>
+            </div>
+        </div>
+    </li>
+</script>

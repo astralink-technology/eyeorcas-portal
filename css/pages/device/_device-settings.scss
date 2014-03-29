@@ -1,0 +1,32 @@
+//Device Settings CSS start here
+.device-settings{
+  section{
+    h3{
+      font-weight:bold;
+      font-size:em(20, $text-size-base);
+    }
+  }
+
+  #connected-phone-listing{
+    float:left;
+    width:100%;
+  }
+
+  .sms-settings-section{
+    .sms-control-group{
+      float: left;
+      margin: 12px 0px 8px 0px;
+      width: 100%;
+    }
+    h3{
+        float:left;
+    }
+    .enable-sms-notifications{
+      margin:4px 0px 0px 12px;
+      float:left;
+    }
+    .btn-phone-number{
+      float:right;
+    }
+  }
+}
