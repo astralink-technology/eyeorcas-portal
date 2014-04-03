@@ -918,6 +918,8 @@ define("core/countryCodePhoneInput", ['kendo'], function (kendo) {
                 'countryCode' : '',
                 'phone' : '',
                 'phoneDigits' : '',
+                'countryInputTabIndex' : '',
+                'phoneInputTabIndex' :'',
                 onChange: function(phoneWithCode) { },
                 onLoad: function (phoneWithCode) { }
             }, options);
@@ -925,12 +927,14 @@ define("core/countryCodePhoneInput", ['kendo'], function (kendo) {
             var $element = $(element);
             $element.html(
                 [
-                    '<span id="country-input">',
-                        '<input id="' + _settings.prefix + 'ddlCountry" />',
-                    '</span>',
-                    '<span>',
-                        '<input id="' + _settings.prefix + 'tbPhoneNumber" type="text" />',
-                    '</span>'
+                    '<div class="js-mod-country-code-phone-input">',
+                        '<span id="country-input" class="country-input">',
+                            '<input id="' + _settings.prefix + 'ddlCountry" tabindex="' + _settings.countryInputTabIndex + '" />',
+                        '</span>',
+                        '<span class="phone-input">',
+                            '<input class="form-control" placeholder="Enter Phone" id="' + _settings.prefix + 'tbPhoneNumber" type="text"tabindex="' + _settings.phoneInputTabIndex + '" />',
+                        '</span>',
+                    '</div>'
                 ].join(''));
 
             methods._countryCodeToLower(_countryData);
@@ -941,18 +945,18 @@ define("core/countryCodePhoneInput", ['kendo'], function (kendo) {
                 var phoneNumber = $("#" + _settings.prefix + "tbPhoneNumber").val();
                 var regex = /[0-9\(\)\-\ ]+$/;
                 if (regex.test(phoneNumber)) {
+                    var phoneWithCode = new Object();
+                    phoneWithCode.code = $('#' + settings.prefix + 'ddlCountry').data("kendoDropDownList").value();
+                    phoneWithCode.countryCode = methods._getCountryCodeFromCode(phoneWithCode.code);
+                    phoneWithCode.phone = $('#' + settings.prefix + 'tbPhoneNumber').val();
+                    phoneWithCode.phoneDigits = "+" + phoneWithCode.code + phoneWithCode.phone;
+                    phoneWithCode.countryName = methods._getCountryNameFromCountryCode(phoneWithCode.countryCode);
+                    _settings.onChange(phoneWithCode); //return the phone with code
                 }
                 else {
                     alert("Please input a valid phone number");
                     $("#" + _settings.prefix + "tbPhoneNumber").val("");
                 }
-
-                var phoneWithCode = new Object();
-                phoneWithCode.code = $('#' + settings.prefix + 'ddlCountry').data("kendoDropDownList").value();
-                phoneWithCode.countryCode = methods._getCountryCodeFromsCode(phoneWithCode.code);
-                phoneWithCode.phone = $('#' + settings.prefix + 'tbPhoneNumber').val();
-                phoneWithCode.phoneDigits = "+" + phoneWithCode.code + phoneWithCode.phone;
-                _settings.onChange(phoneWithCode); //return the phone with code
             });
         },
         _getCodeFromCountryCode: function (countryCode) {
@@ -975,7 +979,7 @@ define("core/countryCodePhoneInput", ['kendo'], function (kendo) {
             }
             return cca2;
         },
-        _getCountryCodeFromsCode: function (code) {
+        _getCountryCodeFromCode: function (code) {
             var countryCode = "";
             for (var i = 0; i < _countryData.length; i++) {
                 if (_countryData[i].code == code) {
@@ -1020,6 +1024,7 @@ define("core/countryCodePhoneInput", ['kendo'], function (kendo) {
                     phoneWithCode.code = code;
                     phoneWithCode.phone = $('#' + prefix + 'tbPhoneNumber').val();
                     phoneWithCode.phoneDigits = "+" + code + $('#' + prefix + 'tbPhoneNumber').val();
+                    phoneWithCode.countryName = methods._getCountryNameFromCountryCode(phoneWithCode.countryCode);
                     _settings.onChange(phoneWithCode); //return the phone with code
                 },
                 dataBound: function () {
@@ -1042,6 +1047,7 @@ define("core/countryCodePhoneInput", ['kendo'], function (kendo) {
                         phoneWithCode.code = code;
                         phoneWithCode.phone = $('#' + prefix + 'tbPhoneNumber').val();
                         phoneWithCode.phoneDigits = "+" + code + $('#' + prefix + 'tbPhoneNumber').val();
+                        phoneWithCode.countryName = methods._getCountryNameFromCountryCode(phoneWithCode.countryCode);
                         _settings.onLoad(phoneWithCode);
                     }
                 }
@@ -1072,6 +1078,7 @@ define("core/countryCodePhoneInput", ['kendo'], function (kendo) {
             loadedPhoneWithCode.phone = phone;
             loadedPhoneWithCode.phoneDigits = phoneDigits;
             loadedPhoneWithCode.code = code;
+            loadedPhoneWithCode.countryName = methods._getCountryNameFromCountryCode(phoneWithCode.countryCode);;
 
             _settings.onLoad(loadedPhoneWithCode);
         }
