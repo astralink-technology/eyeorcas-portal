@@ -21,6 +21,8 @@ class cp_log_dao{
             , $pStatus = null
             , $pOwnerId = null
             , $pEnterpriseId = null
+            , $pSnapshotValue1 = null
+            , $pSnapshotValue2 = null
             ){
 
         $idgeneratorhelper = new cp_idGenerator_helper();
@@ -28,12 +30,12 @@ class cp_log_dao{
 	
 	$utcHelper = new cp_UTCconvertor_helper();
         $pCreateDate = $utcHelper->getCurrentDateTime();
-        
+
         $sqlconnecthelper = new cp_sqlConnection_helper();
-        $connectionString = $sqlconnecthelper->dbConnect(true, $pEnterpriseIds); // if nothing is passed in, it will return a connection string
+        $connectionString = $sqlconnecthelper->dbConnect(true, $pEnterpriseId); // if nothing is passed in, it will return a connection string
         $res = pg_query_params($connectionString, 
             "SELECT * FROM add_log(
-            $1, $2, $3, $4, $5, $6, $7, $8
+            $1, $2, $3, $4, $5, $6, $7, $8, $9, $10
             )"
             , array(
                 $logId
@@ -44,6 +46,8 @@ class cp_log_dao{
                 , $pStatus
                 , $pCreateDate
                 , $pOwnerId
+                , $pSnapshotValue1
+                , $pSnapshotValue2
             ));
         
         $databaseAdapterHelper = new cp_databaseAdapter_helper();
@@ -62,7 +66,7 @@ class cp_log_dao{
     public function getLog(
             $plogId
             , $pMessage = null
-	    , $pTitle = null
+	        , $pTitle = null
             , $pType = null
             , $pLogUrl = null
             , $pStatus = null
@@ -70,13 +74,15 @@ class cp_log_dao{
             , $pPageSize = null
             , $pSkipSize = null
             , $pEnterpriseId = null
+            , $pSnapshotValue1 = null
+            , $pSnapshotValue2 = null
             ){
         $sqlconnecthelper = new cp_sqlConnection_helper();
         $connectionString = $sqlconnecthelper->dbConnect(true, $pEnterpriseId); // if nothing is passed in, it will return a connection string
 
 	$res = pg_query_params($connectionString,
                 "SELECT * FROM get_log(
-                    $1, $2, $3, $4, $5, $6, $7, $8, $9
+                    $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11
                 )"
                 , array(
                     $plogId
@@ -88,6 +94,8 @@ class cp_log_dao{
                     , $pOwnerId
                     , $pPageSize
                     , $pSkipSize
+                    , $pSnapshotValue1
+                    , $pSnapshotValue2
                 ));
         $data = array();
 	$rows = pg_fetch_all($res);
@@ -104,6 +112,8 @@ class cp_log_dao{
                 $logClass->createDate = $row["create_date"];
 		        $logClass->ownerId = $row["owner_id"];
 		        $logClass->totalRows = $row["total_rows"];
+		        $logClass->snapshotValue1 = $row["snapshot_value1"];
+		        $logClass->snapshotValue2 = $row["snapshot_value2"];
 
                 //add row to table
                 array_push($data, $logClass);
@@ -126,13 +136,15 @@ class cp_log_dao{
             , $pStatus = null
             , $pOwnerId = null
             , $pEnterpriseId = null
+            , $pSnapshotValue1 = null
+            , $pSnapshotValue2 = null
             ){
 
         $sqlconnecthelper = new cp_sqlConnection_helper();
         $connectionString = $sqlconnecthelper->dbConnect(true, $pEnterpriseId); // if nothing is passed in, it will return a connection string
         $res = pg_query_params($connectionString,
                 "SELECT * FROM update_log(
-                    $1, $2, $3, $4, $5, $6, $7
+                    $1, $2, $3, $4, $5, $6, $7, $8, $9
                 )"
                 , array(
                     $plogId
@@ -142,6 +154,8 @@ class cp_log_dao{
                     , $pLogUrl
                     , $pStatus
                     , $pOwnerId
+                    , $pSnapshotValue1
+                    , $pSnapshotValue2
                     ));
 
         $databaseAdapterHelper = new cp_databaseAdapter_helper();

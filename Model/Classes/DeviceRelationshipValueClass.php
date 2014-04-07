@@ -2,7 +2,7 @@
            
 class cp_Device_Relationship_Value{
     public $deviceRelationshipValueId;
-        public $name;
+    public $name;
     public $push;
     public $sms;
     public $token;

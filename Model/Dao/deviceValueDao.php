@@ -22,7 +22,12 @@ class cp_create_device_value_dao{
             , $pSalt = null
             , $pDeviceId = null
             , $pDescription = null
-            , $pEnterpriseId = nulls
+            , $pEnterpriseId = null
+            , $pLocationName = null
+            , $pLatitude = null
+            , $pLongitude = null
+            , $pAppVersion = null
+            , $pFirmwareVersion = null
         ){
 
         $idgeneratorhelper = new cp_idGenerator_helper();
@@ -46,9 +51,14 @@ class cp_create_device_value_dao{
                     , $8
                     , $9
                     , $10
-		    , $11
-		    , $12
-		    , $13
+                    , $11
+                    , $12
+                    , $13
+                    , $14
+                    , $15
+                    , $16
+                    , $17
+                    , $18
             )"
             , array(
                 $pDeviceValueId
@@ -63,7 +73,12 @@ class cp_create_device_value_dao{
                 , $pCreateDate
                 , null
                 , $pDeviceId
-		, $pDescription
+		        , $pDescription
+                , $pLocationName
+                , $pLatitude
+                , $pLongitude
+                , $pAppVersion
+                , $pFirmwareVersion
             ));
         
         $databaseAdapterHelper = new cp_databaseAdapter_helper();
@@ -90,7 +105,12 @@ class cp_create_device_value_dao{
             , $pPageSize = null
             , $pSkipSize  = null
             , $pEnterpriseId = null
-            ){
+            , $pLocationName = null
+            , $pLatitude = null
+            , $pLongitude = null
+            , $pAppVersion = null
+            , $pFirmwareVersion = null
+        ){
         
         $sqlconnecthelper = new cp_sqlConnection_helper();
         $connectionString = $sqlconnecthelper->dbConnect(true, $pEnterpriseId); // if nothing is passed in, it will return a connection string
@@ -107,6 +127,11 @@ class cp_create_device_value_dao{
                         , $8
                         , $9
                         , $10
+                        , $11
+                        , $12
+                        , $13
+                        , $14
+                        , $15
                 )"
                 , array(
                     $pDeviceValueId
@@ -119,6 +144,11 @@ class cp_create_device_value_dao{
                     , $pDeviceId
                     , $pPageSize
                     , $pSkipSize
+                    , $pLocationName
+                    , $pLatitude
+                    , $pLongitude
+                    , $pAppVersion
+                    , $pFirmwareVersion
                 ));
         $data = array();
 	    $rows = pg_fetch_all($res);
@@ -139,6 +169,11 @@ class cp_create_device_value_dao{
                 $deviceValueClass->lastUpdate = $row["last_update"];
                 $deviceValueClass->deviceId = $row["device_id"];
                 $deviceValueClass->description = $row["description"];
+                $deviceValueClass->locationName = $row["location_name"];
+                $deviceValueClass->latitude = $row["latitude"];
+                $deviceValueClass->longitude = $row["longitude"];
+                $deviceValueClass->appVersion = $row["app_version"];
+                $deviceValueClass->firmwareVersion = $row["firmware_version"];
                 $deviceValueClass->totalRows = $row["total_rows"];
                 //add row to table
                 array_push($data, $deviceValueClass);
@@ -167,6 +202,11 @@ class cp_create_device_value_dao{
                 , $pDeviceId = null
                 , $pDescription = null
                 , $pEnterpriseId = null
+                , $pLocationName = null
+                , $pLatitude = null
+                , $pLongitude = null
+                , $pAppVersion = null
+                , $pFirmwareVersion = null
             ){
 
         $sqlconnecthelper = new cp_sqlConnection_helper();
@@ -185,6 +225,11 @@ class cp_create_device_value_dao{
                     , $10
                     , $11
                     , $12
+                    , $13
+                    , $14
+                    , $15
+                    , $16
+                    , $17
                 )"
                 , array(
                     $pDeviceValueId
@@ -198,7 +243,12 @@ class cp_create_device_value_dao{
                     , $pSalt
                     , $pLastUpdate
                     , $pDeviceId
-		    , $pDescription
+		            , $pDescription
+                    , $pLocationName
+                    , $pLatitude
+                    , $pLongitude
+                    , $pAppVersion
+                    , $pFirmwareVersion
                 ));
 
         $databaseAdapterHelper = new cp_databaseAdapter_helper();

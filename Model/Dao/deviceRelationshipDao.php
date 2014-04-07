@@ -368,6 +368,7 @@ class cp_device_relationship_dao{
         , $pPageSize = null
         , $pSkipSize = null
         , $pEnterpriseId = null
+        , $pAppName = null
     ){
         $sqlconnecthelper = new cp_sqlConnection_helper();
         $connectionString = $sqlconnecthelper->dbConnect(true, $pEnterpriseId); // if nothing is passed in, it will return a connection string
@@ -379,6 +380,7 @@ class cp_device_relationship_dao{
                     , $3
                     , $4
                     , $5
+                    , $6
             )"
             , array(
                 $pDeviceRelationshipId
@@ -386,6 +388,7 @@ class cp_device_relationship_dao{
                 , $pOwnerId
                 , $pPageSize
                 , $pSkipSize
+                , $pAppName
             ));
         $data = array();
         $rows = pg_fetch_all($res);
@@ -400,6 +403,7 @@ class cp_device_relationship_dao{
             $deviceRelationshipClass->lastUpdate = $row["last_update"];
             $deviceRelationshipClass->createDate = $row["create_date"];
             $deviceRelationshipClass->totalRows = $row["total_rows"];
+            $deviceRelationshipClass->appName = $row["app_name"];
 
             //add row to table
             array_push($data, $deviceRelationshipClass);
@@ -417,6 +421,7 @@ class cp_device_relationship_dao{
             $pDeviceId = null
             , $pOwnerId = null
             , $pEnterpriseId = null
+            , $pAppName = null
             ){
 
         $idgeneratorhelper = new cp_idGenerator_helper();
@@ -435,6 +440,7 @@ class cp_device_relationship_dao{
                     , $3
                     , $4
                     , $5
+                    , $6
             )"
             , array(
                 $pDeviceRelationshipId
@@ -442,6 +448,7 @@ class cp_device_relationship_dao{
                 , $pOwnerId
                 , null
                 , $pCreateDate
+                , $pAppName
             ));
 
         $databaseAdapterHelper = new cp_databaseAdapter_helper();
@@ -461,6 +468,7 @@ class cp_device_relationship_dao{
         , $pOwnerId = null
         , $pLastUpdate = null
         , $pEnterpriseId = null
+        , $pAppName = null
     ){
 
         $sqlconnecthelper = new cp_sqlConnection_helper();
@@ -471,12 +479,14 @@ class cp_device_relationship_dao{
                 , $2
                 , $3
                 , $4
+                , $5
             )"
             , array(
                 $pDeviceRelationshipId
                 , $pDeviceId
                 , $pOwnerId
                 , $pLastUpdate
+                , $pAppName
             ));
 
         $databaseAdapterHelper = new cp_databaseAdapter_helper();

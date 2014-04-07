@@ -22,6 +22,12 @@ class cp_DeviceValueResController
         $skipSize = null;
         $enterpriseId = null;
 
+        $locationName= null;
+        $latitude = null;
+        $longitude = null;
+        $firmwareVersion = null;
+        $appVersion = null;
+
         if (isset($_GET['EnterpriseId'])){ $enterpriseId = $_GET['EnterpriseId']; };
         if (isset($_GET['DeviceValueId'])){ $deviceValueId = $_GET['DeviceValueId']; };
         if (isset($_GET['Push'])){ $push = $_GET['Push']; };
@@ -33,6 +39,11 @@ class cp_DeviceValueResController
         if (isset($_GET['DeviceId'])){ $deviceId = $_GET['DeviceId']; };
         if (isset($_GET['PageSize'])){ $pageSize = $_GET['PageSize']; };
         if (isset($_GET['SkipSize'])){ $skipSize = $_GET['SkipSize']; };
+        if (isset($_GET['LocationName'])){ $locationName = $_GET['LocationName']; };
+        if (isset($_GET['Latitude'])){ $latitude = $_GET['Latitude']; };
+        if (isset($_GET['Longitude'])){ $longitude = $_GET['Longitude']; };
+        if (isset($_GET['AppVersion'])){ $appVersion = $_GET['AppVersion']; };
+        if (isset($_GET['FirmwareVersion'])){ $firmwareVersion = $_GET['FirmwareVersion']; };
 
         //get the json formatted data
         $deviceValueDb = new cp_create_device_value_dao();
@@ -48,6 +59,11 @@ class cp_DeviceValueResController
             , $pageSize
             , $skipSize
             , $enterpriseId
+            , $locationName
+            , $latitude
+            , $longitude
+            , $appVersion
+            , $firmwareVersion
         );
 
         if ($databaseHelper->hasDataNoError($deviceValueRes)){
@@ -77,6 +93,11 @@ class cp_DeviceValueResController
             $deviceId = null;
             $description = null;
             $enterpriseId = null;
+            $locationName = null;
+            $latitude = null;
+            $longitude = null;
+            $appVersion = null;
+            $firmwareVersion = null;
 
             if (isset($newDeviceValue['EnterpriseId'])){ $enterpriseId = $newDeviceValue['EnterpriseId']; };
             if (isset($newDeviceValue['Push'])){ $push = $newDeviceValue['Push']; };
@@ -89,6 +110,11 @@ class cp_DeviceValueResController
             if (isset($newDeviceValue['Salt'])){ $salt = $newDeviceValue['Salt']; };
             if (isset($newDeviceValue['DeviceId'])){ $deviceId = $newDeviceValue['DeviceId']; };
             if (isset($newDeviceValue['Description'])){ $description = $newDeviceValue['Description']; };
+            if (isset($newDeviceValue['LocationName'])){ $locationName = $newDeviceValue['LocationName']; };
+            if (isset($newDeviceValue['Latitude'])){ $latitude = $newDeviceValue['Latitude']; };
+            if (isset($newDeviceValue['Longitude'])){ $longitude = $newDeviceValue['Longitude']; };
+            if (isset($newDeviceValue['AppVersion'])){ $appVersion = $newDeviceValue['AppVersion']; };
+            if (isset($newDeviceValue['FirmwareVersion'])){ $firmwareVersion = $newDeviceValue['FirmwareVersion']; };
 
             //get the json formatted data
             $deviceValueDb = new cp_create_device_value_dao();
@@ -104,6 +130,11 @@ class cp_DeviceValueResController
                 , $deviceId
                 , $description
                 , $enterpriseId
+                , $locationName
+                , $latitude
+                , $longitude
+                , $appVersion
+                , $firmwareVersion
             );
 
             if ($databaseHelper->hasDataNoError($addDeviceValueRes)){
@@ -142,6 +173,11 @@ class cp_DeviceValueResController
             $deviceId = null;
 	        $description = null;
 	        $enterpriseId = null;
+	        $locationName = null;
+	        $latitude = null;
+	        $longitude = null;
+	        $appVersion = null;
+	        $firmwareVersion = null;
 
             if (isset($updateDeviceValue['EnterpriseId'])){ $enterpriseId = $updateDeviceValue['EnterpriseId']; };
             if (isset($updateDeviceValue['DeviceValueId'])){ $deviceValueId = $updateDeviceValue['DeviceValueId']; };
@@ -156,6 +192,11 @@ class cp_DeviceValueResController
             if (isset($updateDeviceValue['LastUpdate'])){ $lastUpdate = $updateDeviceValue['LastUpdate']; };
             if (isset($updateDeviceValue['DeviceId'])){ $deviceId = $updateDeviceValue['DeviceId']; };
             if (isset($updateDeviceValue['Description'])){ $description = $updateDeviceValue['Description']; };
+            if (isset($updateDeviceValue['LocationName'])){ $locationName = $updateDeviceValue['LocationName']; };
+            if (isset($updateDeviceValue['Latitude'])){ $latitude = $updateDeviceValue['Latitude']; };
+            if (isset($updateDeviceValue['Longitude'])){ $longitude = $updateDeviceValue['Longitude']; };
+            if (isset($updateDeviceValue['AppVersion'])){ $appVersion = $updateDeviceValue['AppVersion']; };
+            if (isset($updateDeviceValue['FirmwareVersion'])){ $firmwareVersion = $updateDeviceValue['FirmwareVersion']; };
 
             //device Id and entity Id is required for editing the device
             if ($deviceValueId != null){
@@ -175,6 +216,11 @@ class cp_DeviceValueResController
                     , $deviceId
 		            , $description
 		            , $enterpriseId
+		            , $locationName
+		            , $latitude
+		            , $longitude
+		            , $appVersion
+		            , $firmwareVersion
                 );
 
                 if ($databaseHelper->hasDataNoError($updateDeviceValueRes)){
