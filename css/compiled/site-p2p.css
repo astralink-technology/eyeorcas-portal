@@ -6976,6 +6976,9 @@ body {
   float: left;
   z-index: 100; }
 
+label {
+  font-weight: 500; }
+
 .section-wrapper {
   width: 100%;
   float: left; }
@@ -7336,7 +7339,7 @@ input[type="color"],
 .login {
   background-color: #eeeeee; }
   .login h2 {
-    color: #222222;
+    color: #555555;
     margin: 0px;
     font-size: 1.71429em; }
   .login p {
@@ -7359,9 +7362,9 @@ input[type="color"],
     width: 320px;
     margin: 0 auto; }
   .login label {
-    color: #222222; }
+    color: #555555; }
     .login label a {
-      color: #222222;
+      color: #555555;
       font-weight: normal; }
   .login .label-group {
     width: 100%;
@@ -7384,7 +7387,7 @@ input[type="color"],
     margin: 40px 0px 20px 0px; }
   .login .btn-extra-links {
     padding: 0px;
-    color: #222222;
+    color: #555555;
     float: right; }
 
 .signup {
@@ -7406,9 +7409,9 @@ input[type="color"],
     width: 320px;
     margin: 0 auto; }
   .signup label {
-    color: #222222; }
+    color: #555555; }
   .signup h2 {
-    color: #222222;
+    color: #555555;
     margin: 0px;
     font-size: 1.71429em; }
   .signup p {
@@ -7428,7 +7431,7 @@ input[type="color"],
     margin: 40px 0px 20px 0px; }
   .signup .btn-extra-links {
     padding: 0px;
-    color: #222222;
+    color: #555555;
     float: right; }
 
 .forgot-password {

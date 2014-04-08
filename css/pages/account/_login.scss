@@ -1,9 +1,8 @@
 //Login CSS start here
 .login{
   background-color:$color-muted-light;
-
   h2{
-    color: $color-text;
+    color: $color-muted-intense;
     margin:0px;
     font-size:em(24, $text-size-base);
   }
@@ -32,9 +31,9 @@
         margin:0 auto;
     }
     label{
-        color: $color-text;
+        color: $color-muted-intense;
         a{
-            color: $color-text;
+            color: $color-muted-intense;
             font-weight:normal;
        }
     }
@@ -68,7 +67,7 @@
   }
     .btn-extra-links{
         padding:0px;
-        color:$color-text;
+        color:$color-muted-intense;
         float:right;
     }
 }

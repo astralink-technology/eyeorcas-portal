@@ -23,11 +23,11 @@
         margin:0 auto;
     }
     label{
-        color: $color-text;
+        color: $color-muted-intense;
     }
     
     h2{
-        color: $color-text;
+        color: $color-muted-intense;
         margin:0px;
         font-size:em(24, $text-size-base);
     }
@@ -56,7 +56,7 @@
     
     .btn-extra-links{
         padding:0px;
-        color:$color-text;
+        color:$color-muted-intense;
         float:right;
     }
 }
