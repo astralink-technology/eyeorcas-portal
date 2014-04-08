@@ -5,21 +5,17 @@
         <?php include ($_SERVER['DOCUMENT_ROOT'] . '/Layout/master.php');?>
         
     </head>
-    <body class="overview aside aside-left">
+    <body class="overview">
         <div id="root">
             <?php include ($_SERVER['DOCUMENT_ROOT'] . '/Layout/header.php');?>
             <?php include ($_SERVER['DOCUMENT_ROOT'] . '/Layout/devicePanelSidebar.php');?>
-            <section class="section-wrapper">
-                    <h2>Overview</h2>
-                    <section class="overview-section-content-wrapper">
-                        <div class="overview-section-content-wrapper">
-                            <ul class="list-inline">
-                                <li id="deviceConnectedCount"></li>
-                                <li id="deviceVideoCount"></li>
-                                <li id="deviceLogCount"></li>
-                            </ul>
-                        </div>
-                    </section>
+            <h2>Overview</h2>
+            <section class="col-md-12">
+                <ul class="list-inline">
+                    <li id="deviceConnectedCount"></li>
+                    <li id="deviceVideoCount"></li>
+                    <li id="deviceLogCount"></li>
+                </ul>
             </section>
         </div>
         <script data-main="/js/device/overview.js" src="/cp-front/js/requireJs/require-jquery.js"></script>

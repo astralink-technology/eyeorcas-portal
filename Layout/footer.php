@@ -1,6 +1,6 @@
 <div id="footer">
-    <div class="copyright col-md-10 col-md-offset-1">Copyright eyeOrcas. All rights reserved</div>
-    <div class="col-md-10 col-md-offset-1">
+    <div class="copyright col-md-12">Copyright eyeOrcas. All rights reserved</div>
+    <div class="col-md-12">
         <ul class="list-inline">
             <li><a href="javascript:void(0)">Home</a></li>
             <li><i class="fa fa-circle"></i></li>

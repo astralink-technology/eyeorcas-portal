@@ -1,12 +1,13 @@
 //signup CSS start here
 .signup{
-        background-color:$color-brand-blue;
+  background-color:$color-muted-light;
     .section-wrapper{
         float:left;
         width:100%;
     }
     .alert{
       margin:8px 0px 0px 0px;
+      padding:8px 12px;
       float:left;
       width:100%;
     }
@@ -17,24 +18,21 @@
     text-align: center;
     color: $color-brand-red;
   }
-    .logo{
-        padding:0px;
-        margin:0px 0px 24px 0px;
-      border-bottom:0px;
-    }
     .signup-form-wrapper{
         width:320px;
         margin:0 auto;
     }
     label{
-        color: $color-text-reversed;
+        color: $color-text;
     }
     
-    h1{
-        color: $color-text-reversed;
+    h2{
+        color: $color-text;
+        margin:0px;
+        font-size:em(24, $text-size-base);
     }
     p{
-        color: $color-text-reversed;
+        color: $color-muted-dark;
         margin:4px 0px 12px 0px;
     }
     
@@ -52,12 +50,13 @@
     }
   .logo{
     padding:0px;
-    margin:40px 0px 24px 0px;
+    text-align:center;
+    margin:40px 0px 20px 0px;
   }
     
     .btn-extra-links{
         padding:0px;
-        color:$color-text-reversed;
+        color:$color-text;
         float:right;
     }
 }

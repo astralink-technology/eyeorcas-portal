@@ -9,8 +9,8 @@
             <section class="jumbotron">
                 <header class="landing-header">
                     <ul class="list-inline public-controls">
-                        <li><a class="btn btn-lg btn-link" href="/account/login">Log In</a></li>
-                        <li><a class="btn btn-lg btn-primary" href="/account/signup">Sign Up</a></li>
+                        <li><a class="btn btn-link" href="/account/login">Log In</a></li>
+                        <li><a class="btn btn-primary" href="/account/signup">Sign Up</a></li>
                     </ul>
                 </header>
                 <div class="introduction">
@@ -44,7 +44,7 @@
                 </section>
             </section>
             <section class="landing-content">
-                <div class="col-md-2 col-md-offset-2 img-wrapper">
+                <div class="col-md-3 col-md-offset-1 img-wrapper">
                     <img src="/img/device-management.png" />
                 </div>
                 <div class="col-md-6 device-management">
@@ -56,7 +56,7 @@
             </section>
             <section class="landing-content">
                 <div>
-                    <div class="col-md-5 col-md-offset-2">
+                    <div class="col-md-7 col-md-offset-1">
                         <h2>Push Notifications, SMS and Email Alerts</h2>
                         <p>Receive device updates and triggered messages in forms of
                             Push Notifications, SMS and email alerts.</p>
@@ -64,14 +64,14 @@
                     </div>
                 </div>
                 <div>
-                    <div  class="col-md-4 col-md-offset-6 img-wrapper">
+                    <div  class="col-md-4 col-md-offset-5 img-wrapper">
                         <img src="/img/push-notify-multisensor.png" />
                     </div>
                 </div>
         </div>
         </section>
         <section class="landing-content img-wrapper">
-            <div class="col-md-2 col-md-offset-2 img-wrapper">
+            <div class="col-md-3 col-md-offset-1 img-wrapper">
                 <img src="/img/real-time.png" />
             </div>
             <div class="col-md-6 real-time">
@@ -83,7 +83,7 @@
         </section>
         <section class="landing-content img-wrapper">
             <div>
-                <div class="col-md-5 col-md-offset-2">
+                <div class="col-md-5 col-md-offset-1">
                     <h2>Multi Platform</h2>
                     <p>eyeOrcas is not only iPhone and Android Applications.
                         Access eyeOrcas from any broswers from a laptop
@@ -91,7 +91,7 @@
                 </div>
             </div>
             <div>
-                <div  class="col-md-4 col-md-offset-6 img-wrapper">
+                <div  class="col-md-4 col-md-offset-5 img-wrapper">
                     <img src="/img/multiplatform.png" />
                 </div>
             </div>

@@ -4,8 +4,8 @@ require.config({
         'utils': '/cp-front/js/utils',
         'core' : '/cp-front/js/custom/core',
         'devices' : '/JSModules/device',
-	'media' : '/JSModules/media',
-	'log' : '/JSModules/log'
+        'media' : '/JSModules/media',
+        'log' : '/JSModules/log'
     }
 });
 
@@ -17,7 +17,7 @@ require([
 function (
         getDeviceConnectedCount
         , getDeviceVideoCount
-	, getActivityLogCount
+	    , getActivityLogCount
     ) {
 
     $(document).ready(function () {

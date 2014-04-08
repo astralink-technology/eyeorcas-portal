@@ -7,7 +7,7 @@
   .jumbotron  {
     @include background-size(cover);
     background-image: url('/img/cover.png');
-    background-position: 50 50;
+    background-position: 50% 50%;
     float:left;
     width:100%;
     padding:0px 32px;
@@ -30,7 +30,8 @@
 
   .public-controls{
     float:right;
-    padding:0px 20px;
+    padding:0px;
+    margin:20px 0px;
     .btn-link{
       color: $color-text-reversed;
     }
@@ -40,7 +41,11 @@
     text-align:center;
     color:$color-text-reversed;
     width:100%;
+    height:560px;
     float:left;
+    img{
+      margin:0px 0px 32px 0px;
+    }
   }
 
   .get-started{
@@ -71,7 +76,7 @@
       color:$color-muted-intense;
       line-height:em(20, $text-size-base);
       font-weight:300;
-      margin:4px 0px 12px 0px;
+      margin:4px 0px 20px 0px;
     }
     .img-wrapper{
       text-align:center;

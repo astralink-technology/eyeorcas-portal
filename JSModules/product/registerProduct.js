@@ -38,7 +38,7 @@ define("product/registerProduct", ['jquery'],
                 methods._checkIfUserRegistered();
              },
             _checkIfUserRegistered: function (){
-                var urlParms = "?EntityId=" + _settings.entityId;
+                var urlParms = "?OwnerId=" + _settings.entityId;
                 urlParms += "&EnterpriseId=" + _settings.enterpriseId;
                 $.ajax({
                     type: "GET",

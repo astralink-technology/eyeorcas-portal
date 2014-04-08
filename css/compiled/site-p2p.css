@@ -6910,10 +6910,17 @@ input.k-textbox, textarea.k-textbox, input.k-textbox:hover, textarea.k-textbox:h
         font-weight: 600; }
 
 /* overrides */
+.modal-content {
+  float: left;
+  display: block; }
+  .modal-content .form-group {
+    float: left;
+    width: 100%; }
+
 .modal-body {
+  float: left;
   padding: 8px 20px 0px 20px; }
   .modal-body .full-block {
-    float: none;
     margin: 0px 0px 12px 0px; }
 
 /* alerts */
@@ -6934,13 +6941,30 @@ body {
   width: 100%;
   float: left; }
 
-.logo {
-  text-align: center;
-  padding: 40px 0px; }
+.form-group {
+  float: left;
+  width: 100%;
+  margin-bottom: 12px; }
 
-.default-side-bar .logo {
-  border-bottom: 0px;
-  margin: 0px; }
+.navbar-default {
+  border: none;
+  border-radius: 0px;
+  background-color: #206876; }
+  .navbar-default .navbar-nav li a {
+    padding: 29px 10px;
+    color: white; }
+  .navbar-default .navbar-nav li a:hover {
+    color: white;
+    background-color: #37b6ce; }
+  .navbar-default .dropdown-menu li a {
+    padding: 4px 12px;
+    color: #222222; }
+  .navbar-default .dropdown-menu li a:hover {
+    background-color: #37b6ce;
+    color: white; }
+
+.alert-sm {
+  padding: 8px 12px; }
 
 .production-status {
   width: 100%;
@@ -6952,86 +6976,16 @@ body {
   float: left;
   z-index: 100; }
 
-.site-header {
-  float: right;
-  height: 50px; }
-  .site-header h1 {
-    color: #222222;
-    font-size: 24px;
-    font-weight: 600;
-    margin: 4px 0px 4px 8px; }
-  .site-header a {
-    color: #222222;
-    text-decoration: none; }
-  .site-header .side-bar-toggle {
-    font-size: 21px;
-    padding: 14px; }
-  .site-header figure {
-    margin: 8px 0px; }
-    .site-header figure img {
-      width: 32px;
-      height: 32px;
-      border-top-left-radius: 16px;
-      border-bottom-left-radius: 16px;
-      border-top-right-radius: 16px;
-      border-bottom-right-radius: 16px;
-      -webkit-box-shadow: 0 1px 3px #555;
-      -moz-box-shadow: 0 1px 3px #555;
-      box-shadow: 0 1px 3px #555; }
-  .site-header .member-detail .member-type {
-    color: #bf7330;
-    margin: 16px 14px; }
-  .site-header .member-detail .identification {
-    color: #206876;
-    margin: 16px 0px 16px 12px; }
-  .site-header .member-detail .settings {
-    position: relative;
-    padding: 16px 20px; }
-    .site-header .member-detail .settings i {
-      font-size: 1em;
-      color: #bbbbbb; }
-  .site-header .member-detail .dropdown-menu {
-    margin-top: -10px;
-    margin-right: 13px; }
-
-aside {
-  width: 240px;
-  height: 100%;
-  z-index: 20;
-  overflow: scrollable;
-  background-color: #206876;
-  color: #FFFFFF;
-  position: fixed; }
-
 .section-wrapper {
   width: 100%;
   float: left; }
 
 .logo {
-  border-bottom: 4px solid #eeeeee;
   margin: 0px 0px 32px 0px; }
-
-.aside-left {
-  left: 0;
-  top: 0; }
-  .aside-left .section-wrapper {
-    padding: 0px 20px 0px 260px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box; }
 
 .section-wrapper h2 {
   font-size: 2em;
   font-weight: 600; }
-
-.aside-right {
-  right: 0;
-  top: 0; }
-  .aside-right .section-wrapper {
-    padding: 0px 260px 0px 20px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box; }
 
 .home-panel ul li, .device-control-panel ul li {
   margin: 1px 0px 0px 0px; }
@@ -7250,7 +7204,7 @@ input[type="color"],
   display: none; }
 
 .js-mod-get-device-listing li {
-  padding: 0px 8px 8px 0px; }
+  padding: 0px 8px 8px 0px !important; }
 .js-mod-get-device-listing .device {
   width: 200px;
   height: 200px;
@@ -7325,12 +7279,12 @@ input[type="color"],
       cursor: pointer; }
     .js-mod-get-media-listing li .video-details {
       width: 320px;
-      margin: 8px 0px 0px 0px;
       padding: 10px;
       float: left;
-      background-color: white; }
+      background-color: #eeeeee; }
       .js-mod-get-media-listing li .video-details h3 {
-        font-weight: bold; }
+        font-weight: 500;
+        margin: 0px 0px 4px 0px; }
       .js-mod-get-media-listing li .video-details p {
         margin: 0px; }
 
@@ -7398,9 +7352,17 @@ input[type="color"],
 
 /* account pages */
 .login {
-  background-color: #04859d; }
+  background-color: #eeeeee; }
+  .login h2 {
+    color: #222222;
+    margin: 0px;
+    font-size: 1.71429em; }
+  .login p {
+    color: #777777;
+    margin: 4px 0px 12px 0px; }
   .login .alert {
     margin: 8px 0px 0px 0px;
+    padding: 8px 12px;
     float: left;
     width: 100%; }
   .login .alert-main {
@@ -7415,9 +7377,9 @@ input[type="color"],
     width: 320px;
     margin: 0 auto; }
   .login label {
-    color: white; }
+    color: #222222; }
     .login label a {
-      color: white;
+      color: #222222;
       font-weight: normal; }
   .login .label-group {
     width: 100%;
@@ -7436,20 +7398,21 @@ input[type="color"],
     margin: 0px 0px 8px 0px; }
   .login .logo {
     padding: 0px;
-    margin: 40px 0px 24px 0px;
-    border-bottom: 0px; }
+    text-align: center;
+    margin: 40px 0px 20px 0px; }
   .login .btn-extra-links {
     padding: 0px;
-    color: white;
+    color: #222222;
     float: right; }
 
 .signup {
-  background-color: #04859d; }
+  background-color: #eeeeee; }
   .signup .section-wrapper {
     float: left;
     width: 100%; }
   .signup .alert {
     margin: 8px 0px 0px 0px;
+    padding: 8px 12px;
     float: left;
     width: 100%; }
   .signup .alert-main {
@@ -7457,19 +7420,17 @@ input[type="color"],
     padding: 8px 0px;
     text-align: center;
     color: #ff1800; }
-  .signup .logo {
-    padding: 0px;
-    margin: 0px 0px 24px 0px;
-    border-bottom: 0px; }
   .signup .signup-form-wrapper {
     width: 320px;
     margin: 0 auto; }
   .signup label {
-    color: white; }
-  .signup h1 {
-    color: white; }
+    color: #222222; }
+  .signup h2 {
+    color: #222222;
+    margin: 0px;
+    font-size: 1.71429em; }
   .signup p {
-    color: white;
+    color: #777777;
     margin: 4px 0px 12px 0px; }
   .signup input[type="email"],
   .signup input[type="text"] {
@@ -7481,10 +7442,11 @@ input[type="color"],
     margin: 0px 0px 8px 0px; }
   .signup .logo {
     padding: 0px;
-    margin: 40px 0px 24px 0px; }
+    text-align: center;
+    margin: 40px 0px 20px 0px; }
   .signup .btn-extra-links {
     padding: 0px;
-    color: white;
+    color: #222222;
     float: right; }
 
 .forgot-password {
@@ -7729,7 +7691,7 @@ input[type="color"],
     -o-background-size: cover;
     background-size: cover;
     background-image: url("/img/cover.png");
-    background-position: 50 50;
+    background-position: 50% 50%;
     float: left;
     width: 100%;
     padding: 0px 32px;
@@ -7744,14 +7706,18 @@ input[type="color"],
       margin: 48px 0px 0px 0px; }
   .landing .public-controls {
     float: right;
-    padding: 0px 20px; }
+    padding: 0px;
+    margin: 20px 0px; }
     .landing .public-controls .btn-link {
       color: white; }
   .landing .introduction {
     text-align: center;
     color: white;
     width: 100%;
+    height: 560px;
     float: left; }
+    .landing .introduction img {
+      margin: 0px 0px 32px 0px; }
   .landing .get-started {
     text-align: center;
     background-color: #eeeeee;
@@ -7776,7 +7742,7 @@ input[type="color"],
       color: #555555;
       line-height: 1.42857em;
       font-weight: 300;
-      margin: 4px 0px 12px 0px; }
+      margin: 4px 0px 20px 0px; }
     .landing .landing-content .img-wrapper {
       text-align: center; }
   .landing .device-management, .landing .real-time {

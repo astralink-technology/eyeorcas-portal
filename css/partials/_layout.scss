@@ -14,16 +14,42 @@ body{
     float:left;
 }
 
-.logo{
-  text-align:center;
-  padding:40px 0px;
+.form-group{
+  float:left;
+  width:100%;
+  margin-bottom:12px;
 }
 
-.default-side-bar{
-    .logo{
-      border-bottom: 0px;
-      margin:0px;
+.navbar-default{
+  border:none;
+  border-radius:0px;
+  background-color:$color-brand-dark-blue;
+  .navbar-nav li{
+    a{
+      padding:29px 10px;
+      color:$color-text-reversed;
     }
+    a:hover{
+      color:$color-text-reversed;
+      background-color:$color-brand-light-blue;
+     }
+  }
+  .dropdown-menu{
+    li {
+      a{
+        padding: 4px 12px;
+        color: $color-text;
+      }
+      a:hover{
+        background-color: $color-brand-light-blue;
+        color:$color-text-reversed;
+      }
+    }
+  }
+}
+
+.alert-sm{
+  padding:8px 12px;
 }
 
 .production-status{
@@ -38,66 +64,7 @@ body{
 }
 
 .site-header{
-    float:right;
-    height:50px;
-    h1{
-        color:$color-text;
-        font-size:24px;
-        font-weight:600;
-        margin:4px 0px 4px 8px;
-    }
-    a{
-        color:$color-text;
-        text-decoration:none;
-    }
-    .side-bar-toggle{
-        font-size:21px;
-        padding:14px;
-    }
-    figure{
-        margin:8px 0px;
-        img{
-            width:32px;
-            height:32px;
-            @include border-left-radius(16px);
-            @include border-right-radius(16px);
-            -webkit-box-shadow: 0 1px 3px #555;
-            -moz-box-shadow: 0 1px 3px #555;
-            box-shadow: 0 1px 3px #555;
-        }
-    } 
-    .member-detail{
-        .member-type{
-            color:$color-brand-dark-yellow;
-            margin:16px 14px;
-        }
-        .identification{
-            color:$color-brand-dark-blue;
-            margin:16px 0px 16px 12px;
-        }
-        .settings{
-            position:relative;
-            padding:16px 20px;
-            i{
-                font-size:em(14, $text-size-base);
-                color:$color-muted-mid;
-            }
-        }
-        .dropdown-menu{
-            margin-top: -10px;
-            margin-right: 13px;
-        }
-    }
-}
 
-aside{
-    width:240px;
-    height:100%;
-    z-index:20;
-    overflow:scrollable;
-    background-color:$color-brand-dark-blue;
-    color:#FFFFFF;
-    position:fixed;
 }
 
 .section-wrapper{
@@ -106,17 +73,7 @@ aside{
 }
 
 .logo{
-  border-bottom: 4px solid $color-muted-light;
   margin:0px 0px 32px 0px;
-}
-
-.aside-left{
-    left:0;
-    top:0;
-    .section-wrapper{
-        padding:0px 20px 0px 260px;
-        @include box-sizing(border-box);
-    }
 }
 
 .section-wrapper{
@@ -124,15 +81,6 @@ aside{
     font-size:em(28, $text-size-base);
     font-weight:600;
   }
-}
-
-.aside-right{
-    right:0;
-    top:0;
-    .section-wrapper{
-        padding:0px 260px 0px 20px;
-        @include box-sizing(border-box);
-    }
 }
 
 .home-panel, .device-control-panel{

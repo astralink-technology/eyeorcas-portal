@@ -2,22 +2,21 @@
 <html>
     <head>
         <title>EyeOrcas | Gallery</title>
-        <?php include ($_SERVER['DOCUMENT_ROOT'] . '/Layout/master.php');?>
+        <?php include ($_SERVER['DOCUMENT_ROOT'] . '/Layout/master-requirejs.php');?>
         <!-- video JS -->
         <link href="//vjs.zencdn.net/4.2/video-js.css" rel="stylesheet">
         <script src="//vjs.zencdn.net/4.2/video.js"></script>
     </head>
-    <body class="gallery aside aside-left">
+    <body class="gallery">
         <div id="root">
             <?php include ($_SERVER['DOCUMENT_ROOT'] . '/Layout/header.php');?>
             <?php
             if(isset($deviceId)){
                 include ($_SERVER['DOCUMENT_ROOT'] . '/Layout/devicePanelSidebar.php');
             }else{
-                include ($_SERVER['DOCUMENT_ROOT'] . '/Layout/defaultPanelSidebar.php');
             }
             ?>
-            <section class="section-wrapper">
+            <section class="col-md-12">
                 <h2>Gallery</h2>
                 <div id="video-gallery"></div>
             </section>

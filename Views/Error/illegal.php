@@ -12,5 +12,6 @@
                 <p>You do not have permissions to view this page. Return back <a href="<?php echo '/' ?>"> home</a></p>
             </section>
         </div>
+        <?php include ($_SERVER['DOCUMENT_ROOT'] . '/Layout/footer.php');?>
     </body>
 </html>

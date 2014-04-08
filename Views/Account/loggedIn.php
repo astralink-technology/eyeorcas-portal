@@ -12,5 +12,6 @@
                 <p>You are already logged in. Return to <a href="<?php echo '/' ?>">dashboard</a></p>
             </section>
         </div>
+        <?php include ($_SERVER['DOCUMENT_ROOT'] . '/Layout/footer.php');?>
     </body>
 </html>

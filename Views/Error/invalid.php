@@ -12,5 +12,6 @@
                 <p>Oops<?php if(isset($message)){echo ", " . $message;}; ?>. Return back <a href="<?php echo '/' ?>"> home</a></p>
             </section>
         </div>
+        <?php include ($_SERVER['DOCUMENT_ROOT'] . '/Layout/footer.php');?>
     </body>
 </html>

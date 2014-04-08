@@ -12,5 +12,6 @@
                 <p>Oops, something went missing over here. Return back <a href="<?php echo '/' ?>"> home</a></p>
             </section>
         </div>
+        <?php include ($_SERVER['DOCUMENT_ROOT'] . '/Layout/footer.php');?>
       </body>
 </html>

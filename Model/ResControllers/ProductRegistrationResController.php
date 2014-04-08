@@ -58,7 +58,7 @@ class cp_ProductRegistrationResController
         $status = null;
         $type = null;
         $productId = null;
-        $entityId = null;
+        $ownerId = null;
         $pageSize = null;
         $skipSize = null;
         $enterpriseId = null;
@@ -67,8 +67,8 @@ class cp_ProductRegistrationResController
         if (isset($_GET['ProductRegistrationId'])){ $productRegistrationId= $_GET['ProductRegistrationId']; };
         if (isset($_GET['Status'])){ $status = $_GET['Status']; };
         if (isset($_GET['Type'])){ $type = $_GET['Type']; };
-        if (isset($_GET['ProductId'])){ $productId = $_GET['ProductId']; };
-        if (isset($_GET['EntityId'])){ $entityId = $_GET['EntityId']; };
+        if (isset($_GET['ProductId'])){ $prodauctId = $_GET['ProductId']; };
+        if (isset($_GET['OwnerId'])){ $ownerId = $_GET['OwnerId']; };
         if (isset($_GET['PageSize'])){ $pageSize = $_GET['PageSize']; };
         if (isset($_GET['SkipSize'])){ $skipSize = $_GET['SkipSize']; };
 
@@ -79,7 +79,7 @@ class cp_ProductRegistrationResController
             , $status
             , $type
             , $productId
-            , $entityId
+            , $ownerId
             , $pageSize
             , $skipSize
             , $enterpriseId

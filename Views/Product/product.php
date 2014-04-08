@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>EyeOrcas |EyeOrcas Product</title>
-    <?php include ($_SERVER['DOCUMENT_ROOT'] . '/Layout/master.php');?>
+    <?php include ($_SERVER['DOCUMENT_ROOT'] . '/Layout/master-requirejs.php');?>
 </head>
 <body class="my-devices aside aside-left">
 <div id="root">

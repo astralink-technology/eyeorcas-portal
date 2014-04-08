@@ -1,4 +1,6 @@
-define("devices/getDeviceListing", ['jquery', 'bootstrap', "devices/addDevice", "devices/editDevice", "devices/deleteDevice", 'core/confirmBox', 'core/ajaxLoader', 'text!devices/templates/getDeviceListing.tmpl.ensg.htm'],
+define("devices/getDeviceListing", ['jquery', 'bootstrap', "devices/addDevice",
+    "devices/editDevice", "devices/deleteDevice", 'core/confirmBox', 'core/ajaxLoader',
+    'text!devices/templates/getDeviceListing.tmpl.ensg.htm'],
     function ($, bootstrap, addDevice, editDevice, deleteDevice, confirmBox, ajaxLoader, getDeviceListingTmpl) {
         var _settings = null;
 

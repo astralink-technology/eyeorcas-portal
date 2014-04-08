@@ -9,9 +9,11 @@
             </div>
             <div class="device-display-blob">
                 # if (deviceType == "M") { #
-                    <img src="/img/clipcam.png" />
+                    <div><img src="/img/clipcam.png" /></div>
                 # } else if (deviceType == "H") { #
-                    <img src="/img/hxs.png" />
+                    <div><img src="/img/hxs.png" /></div>
+                # } else { #
+                    <div><img src="/img/unknown-device.png" /></div>
                 # } #
                 <label>${name}</label>
             </div>
