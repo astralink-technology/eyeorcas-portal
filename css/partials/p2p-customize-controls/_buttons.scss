@@ -5,24 +5,3 @@
   @include border-left-radius(0px);
   border:0;
 }
-
-.btn:focus{
-  outline:none;
-}
-
-.btn-danger{
-  background-color:$color-brand-red;
-}
-.btn-danger:hover,
-.btn-danger:active{
-  background-color:$color-brand-light-red;
-}
-
-.btn-primary{
-  background-color:$color-brand-yellow;
-}
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:focus{
-  background-color:$color-brand-light-yellow;
-}

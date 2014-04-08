@@ -13,7 +13,7 @@
                 }else{
                 }
             ?>
-            <h2>Activities</h2>
+            <h1 class="col-md-12">Activities</h1>
             <section id="log-listing" class="col-md-10">
                 <div class="logListings" id="activity-listings"></div>
             </section>

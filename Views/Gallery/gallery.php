@@ -16,8 +16,8 @@
             }else{
             }
             ?>
+            <h1 class="col-md-12">Gallery</h1>
             <section class="col-md-12">
-                <h2>Gallery</h2>
                 <div id="video-gallery"></div>
             </section>
         </div>

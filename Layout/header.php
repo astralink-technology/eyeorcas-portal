@@ -24,7 +24,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li id="nav-my-devices"><a href="/">My Devices</a></li>
+                        <li id="nav-my-devices"><a href="/">Dashboard</a></li>
                         <li id="nav-activities"><a href="/logs">Activities</a></li>
                         <li id="nav-gallery"><a href="/media">Gallery</a></li>
                     </ul>

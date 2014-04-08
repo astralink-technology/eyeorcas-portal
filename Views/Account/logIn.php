@@ -17,7 +17,7 @@
                     <div class="alert alert-danger alert-sm" id="val-loginUsername" style="display:none"></div>
                 </div>
                 <div class="form-group">
-                    <label class="password-label" for="tb-password">Password</label>
+                    <label class="password-label pull-left" for="tb-password">Password</label>
                     <label class="forgotpassword-label pull-right"><a href="/account/forgotPassword" tabindex="4">Forgot?</a></label>
                     <input id="tb-password" placeholder="Password" class="form-control" type="password"  tabindex="2"/>
                     <div class="alert alert-danger alert-sm" id="val-loginPassword" style="display:none"></div>

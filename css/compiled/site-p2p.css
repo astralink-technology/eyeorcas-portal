@@ -7109,24 +7109,6 @@ pre {
   border-bottom-left-radius: 0px;
   border: 0; }
 
-.btn:focus {
-  outline: none; }
-
-.btn-danger {
-  background-color: #ff1800; }
-
-.btn-danger:hover,
-.btn-danger:active {
-  background-color: #ff5240; }
-
-.btn-primary {
-  background-color: #ff7800; }
-
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:focus {
-  background-color: #ff9a40; }
-
 label {
   display: block; }
 
