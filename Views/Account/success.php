@@ -8,7 +8,7 @@
         <div id="root">
             <section class="section-wrapper">
                 <div class="signup-success-wrapper">
-                    <div class="logo"><a href="/"><img src="/img/eyeOrcasLogo.png" /></a></div>
+                    <div class="logo"><a href="/"><img src="/img/logo-md.png" /></a></div>
                     <h1>Sign Up Success</h1>
                     <p>Please check your email and follow the instructions in the email to set up your password and get started.</p>
                     <div class="signup-success-controls">

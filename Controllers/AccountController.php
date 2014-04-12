@@ -40,6 +40,7 @@ class AccountController
             $first_name = $newentity['GivenName'];
             $last_name = $newentity['FamilyName'];
             $email = $newentity['Email'];
+            $password = $newentity['Password'];
             $status = 'V';
             $approved = true;
             $type = '1';
@@ -51,12 +52,17 @@ class AccountController
             if ($checkUserExists == false){
                 $authenticationDao = new cp_authentication_dao();
                 $emailLower = strtolower($email);
+
+                //create a hashed password from here
+                $encryption = new cp_encryption_helper();
+                $newHash = $encryption->hash($password);
                 $resAuthentication = $authenticationDao->createAuthentication(
                         $email
                         , $emailLower
-                        , NULL
+                        , $newHash
                         , NULL
                             );
+
                 $authenticationId = $resAuthentication['Id'];
                 if ($resAuthentication['Error'] == false){
                     //insert a new entity
@@ -101,15 +107,34 @@ class AccountController
                                             , $utcHelper->getCurrentDateTime()
                                             );
 
+                                    //get the alpha starter product
+                                    $productDao = new cp_product_dao();
+                                    $resProduct = $productDao->getProduct(
+                                        null
+                                        , null
+                                        , null
+                                        , null
+                                        , 'EYEORCAS-STARTER'
+                                    );
+                                    if ($resProduct['Error'] == false && $resProduct["TotalRowsAvailable"] > 0){
+                                        $productRegistrationDao = new cp_product_registration_dao();
+                                        $productId = $resProduct['Data'][0]->productId;
+                                        $productRegistrationDao->createProductRegistration(
+                                            'V'
+                                            , null
+                                            , $productId
+                                            , $entityId
+                                        );
+
                                         $mail = new cp_mailSender_helper();
                                         $receiverEmail = $email;
                                         $receiverName = $first_name . " " . $last_name;
 
+                                        //FIX ME, CONVERT THIS TO HTML EMAIL
                                         $subject = "Welcome to Eye Orcas";
-                                        $htmlBody = "Dear " . $first_name .",<br><br> Thank you for signing up with Astralink P2P Portal.<br> ";
+                                        $htmlBody = "Dear " . $first_name .",<br><br> Thank you for signing up with eyeOrcas.<br> ";
                                         $htmlBody .= "<br>Thank you for signing up with us.<br>";
-                                        $htmlBody .= "Your username will be " . $email . ".<br><br>";
-                                        $htmlBody .= "Set the password for your account from this link - ". "http://" . $_SERVER['HTTP_HOST'] . "/P2P/account/setpassword?auth=" . $authenticationId;
+                                        $htmlBody .= "Verify your account within 3 days by clicking on this link - ". "http://" . $_SERVER['HTTP_HOST'] . "/account/verify?code=" . $entityId;
                                         $htmlBody .= "<br><br>Best Regards,<br>";
                                         $htmlBody .= "Eye Orcas";
 
@@ -120,9 +145,18 @@ class AccountController
                                             , $subject
                                             , $htmlBody
                                             , null
-                                            );
+                                        );
+
                                         $dataResponse->dataResponse("Email Sent", null, "No Error", false);
-                                        return;   
+
+                                        //automatically log user in after sending email
+                                        $authenticationHelper->createAuthenticationSession($authenticationId);
+                                        return;
+                                    }else{
+                                        $dataResponse->dataResponse(null, -1, "Product Not Found, user not registered. Contact Administrator", true);
+                                        return;
+                                    }
+
                                 }else{
                                     $dataResponse->dataResponse(null, -1, "Unable to create Email", true);
                                     return;   

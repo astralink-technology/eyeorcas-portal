@@ -1,6 +1,6 @@
 //signup success CSS start here
 .signup-success{
-        background-color:$color-brand-blue;
+        background-color:$color-muted-light;
   .section-wrapper{
     float:left;
     width:100%;
@@ -10,12 +10,12 @@
     margin:0 auto;
   }
   h1{
-    color: $color-text-reversed;
+    color: $color-muted-intense;
     text-align:center;
     margin:24px 0px 0px 0px;
   }
   p{
-    color: $color-text-reversed;
+    color: $color-muted-intense ;
     margin:12px 0px;
     text-align:center;
   }
@@ -27,6 +27,7 @@
     padding:0px;
     margin:40px 0px 24px 0px;
     border-bottom:0px;
+    text-align:center;
   }
   .signup-success-controls{
     float:left;

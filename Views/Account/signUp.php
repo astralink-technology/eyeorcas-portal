@@ -30,7 +30,7 @@
                         <div class="form-group">
                             <label for="tb-password">Password</label>
                             <input id="tb-password" class="form-control" placeholder="Password" type="password" />
-                            <div class="alert alert-danger alert-sm" id="val-email" style="display:none"></div>
+                            <div class="alert alert-danger alert-sm" id="val-password" style="display:none"></div>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary btn-signup" id="btn-signup">Sign up</button>

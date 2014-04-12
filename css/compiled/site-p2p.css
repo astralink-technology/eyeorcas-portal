@@ -7018,7 +7018,7 @@ label {
   float: left; }
 
 #footer {
-  background-color: #0d3639 !important;
+  background-color: #206876 !important;
   padding: 20px 0px; }
   #footer .copyright {
     color: white; }
@@ -7435,23 +7435,24 @@ input[type="color"],
     float: right; }
 
 .forgot-password {
-  background-color: #04859d; }
+  background-color: #eeeeee; }
   .forgot-password .section-wrapper {
     float: left;
     width: 100%; }
   .forgot-password .logo {
     padding: 0px;
     margin: 0px 0px 24px 0px;
-    border-bottom: 0px; }
+    border-bottom: 0px;
+    text-align: center; }
   .forgot-password .forgot-password-form-wrapper {
     width: 320px;
     margin: 0 auto; }
   .forgot-password label {
-    color: white; }
+    color: #555555; }
   .forgot-password h1 {
-    color: white; }
+    color: #555555; }
   .forgot-password p {
-    color: white;
+    color: #555555;
     margin: 4px 0px 12px 0px; }
   .forgot-password input[type="email"] {
     width: 100%;
@@ -7465,7 +7466,7 @@ input[type="color"],
     margin: 40px 0px 24px 0px; }
   .forgot-password .btn-extra-links {
     padding: 0px;
-    color: white;
+    color: #555555;
     float: right; }
 
 .password-old {
@@ -7541,7 +7542,7 @@ input[type="color"],
     margin: 40px 0px 24px 0px; }
 
 .signup-success {
-  background-color: #04859d; }
+  background-color: #eeeeee; }
   .signup-success .section-wrapper {
     float: left;
     width: 100%; }
@@ -7549,11 +7550,11 @@ input[type="color"],
     width: 480px;
     margin: 0 auto; }
   .signup-success h1 {
-    color: white;
+    color: #555555;
     text-align: center;
     margin: 24px 0px 0px 0px; }
   .signup-success p {
-    color: white;
+    color: #555555;
     margin: 12px 0px;
     text-align: center; }
   .signup-success .full-block {
@@ -7561,7 +7562,8 @@ input[type="color"],
   .signup-success .logo {
     padding: 0px;
     margin: 40px 0px 24px 0px;
-    border-bottom: 0px; }
+    border-bottom: 0px;
+    text-align: center; }
   .signup-success .signup-success-controls {
     float: left;
     text-align: center;

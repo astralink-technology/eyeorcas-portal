@@ -8,7 +8,7 @@
         <div id="root">
             <section class="section-wrapper">
                 <div class="forgot-password-form-wrapper">
-                    <div class="logo"><a href="/P2P"><img src="/P2P/img/eyeOrcasLogo.png" /></a></div>
+                    <div class="logo"><a href="/"><img src="/img/logo-md.png" /></a></div>
                     <h1>Forgot Password</h1>
                     <p>Bummer! Request for a new password with your registered email.</p>
                     <form class="forgot-password-form">

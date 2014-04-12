@@ -9,7 +9,7 @@
         <div id="root">
             <?php include ($_SERVER['DOCUMENT_ROOT'] . '/Layout/header.php');?>
             <?php include ($_SERVER['DOCUMENT_ROOT'] . '/Layout/devicePanelSidebar.php');?>
-            <h2>Overview</h2>
+            <h1 class="col-md-12">Overview</h1>
             <section class="col-md-12">
                 <ul class="list-inline">
                     <li id="deviceConnectedCount"></li>

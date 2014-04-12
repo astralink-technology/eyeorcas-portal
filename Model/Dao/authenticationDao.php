@@ -53,7 +53,7 @@ class cp_authentication_dao{
                 , null
                 , null
                 , null
-                , null
+                , 100
                 , $createDate
                 , null
                 )

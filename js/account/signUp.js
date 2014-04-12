@@ -18,13 +18,15 @@ function (
         var givenName = $("#tb-given-name").val();
         var familyName = $("#tb-first-name").val();
         var email = $("#tb-email").val();
+        var password = $("#tb-password").val();
         var checkEmailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         var valGivenName = validationUtils.validateRequired(givenName, "val-givenName", "Please enter your given name");
+        var valPassword = validationUtils.validateRequired(password, "val-password", "Please enter a password");
         var valFirstName = validationUtils.validateRequired(familyName, "val-firstName", "Please enter your first name");
         var valEmail = validationUtils.validateEmail(email, "val-email", "Please enter a valid email", null, true, "Please enter an email");
 
-        if (!valGivenName || !valFirstName || !valEmail){
+        if (!valGivenName || !valFirstName || !valEmail || !valPassword){
             return;
         }
 
@@ -32,7 +34,7 @@ function (
         parms.GivenName = givenName;
         parms.FamilyName = familyName;
         parms.Email = email;
-
+        parms.Password = password;
         var jsonstr = JSON.stringify(parms);
 
         $.ajax({
