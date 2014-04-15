@@ -687,6 +687,257 @@ class AccountController
         echo $viewHelper->render($_SERVER['DOCUMENT_ROOT'] . '/Views/Account/forgotPassword.php', array());
         return; 
     }
+
+    public function appSignup(){ 
+        if (isset($_POST['json'])){
+
+            $jsonPost = $_POST['json'];
+            $newentity = json_decode($jsonPost, true);
+            $dataResponse = new cp_resData_helper();
+            $authenticationHelper = new cp_authentication_helper();
+            $utcHelper = new cp_UTCconvertor_helper();
+
+            $first_name = $newentity['GivenName'];
+            $last_name = $newentity['FamilyName'];
+            $email = $newentity['Email'];
+            $password = $newentity['Password'];
+            $status = 'U';
+            $approved = true;
+            $type = '1';
+
+            $authenticationId = "";
+
+            $encryption = new cp_encryption_helper();
+            $hash = $encryption->hash($password);
+
+            //check if authentication exists
+            $checkUserExists = $authenticationHelper->checkAuthenticationUserExists(strtolower($email));
+            if ($checkUserExists == false){
+                $authenticationDao = new cp_authentication_dao();
+                $emailLower = strtolower($email);
+                $resAuthentication = $authenticationDao->createAuthentication(
+                        $email
+                        , $emailLower
+                        , $hash
+                        , NULL
+                            );
+                $authenticationId = $resAuthentication['Id'];
+                if ($resAuthentication['Error'] == false){
+                    //insert a new entity
+                    $entityDao = new cp_entity_dao();
+                    $nickName = $first_name . " " . $last_name;
+                    $resEntity = $entityDao->createEntity(
+                            $first_name
+                            , $last_name
+                            , $nickName
+                            , $status
+                            , $approved
+                            , $type
+                            , $authenticationId
+                            , null
+                            , null
+                            );
+                    if ($resEntity['Error'] == false){
+                        $entityId = $resEntity['Id'];
+                        if ($entityId != NULL){
+                            //insert the email
+                            $emailDao = new cp_email_dao();
+                            $resEmail = $emailDao->createEmail(
+                                    $email
+                                    , $entityId
+                                );
+                            if ($resEmail['Error'] == false){
+                                $emailId = $resEmail['Id'];
+                                if ($emailId != NULL || $email != NULL){
+                                    //update dao with the latest email
+                                    $entityDao->updateEntity(
+                                            $entityId
+                                            , null
+                                            , null
+                                            , null
+                                            , null
+                                            , null
+                                            , null
+                                            , null
+                                            , null
+                                            , $emailId
+                                            , null
+                                            , $utcHelper->getCurrentDateTime()
+                                            );
+
+
+                                        $mail = new cp_mailSender_helper();
+                                        $receiverEmail = $email;
+                                        $receiverName = $first_name . " " . $last_name;
+
+                                        $subject = "Welcome to EyeOrcas";
+                                        $htmlBody = "Dear " . $first_name .",<br><br> Thank you for signing up with EyeOrcas<br> ";
+                                        $htmlBody .= "<br>Thank you for signing up with us.<br>";
+                                        $htmlBody .= "Your username will be " . $email . ".<br><br>";
+                                        $htmlBody .= "Verify for your account from this link - ". "http://" . $_SERVER['HTTP_HOST'] . "/P2P/account/verifyAccount?auth=" . $authenticationId;
+                                        $htmlBody .= "<br><br>Best Regards,<br>";
+                                        $htmlBody .= "Eye Orcas";
+
+                                        $mail->sendMail(
+                                            $receiverName
+                                            , $receiverEmail
+                                            , true
+                                            , $subject
+                                            , $htmlBody
+                                            , null
+                                            );
+                                        $dataResponse->dataResponse("Email Sent", null, "No Error", false);
+                                        return;   
+                                }else{
+                                    $dataResponse->dataResponse(null, -1, "Unable to create Email", true);
+                                    return;   
+                                } //invalid Email
+                            }else{
+                                $dataResponse->dataResponse(null, -1, "Unable to create Email", true);
+                                return;   
+                            } //invalid Email
+                        }else{
+                            $dataResponse->dataResponse(null, -1, "Unable to create Entity", true);
+                            return;   
+                        }//invalid Entity
+                    }else{
+                        $dataResponse->dataResponse(null, -1, "Unable to create Entity", true);
+                        return;   
+                    }//invalid Entity
+                }else{
+                    $dataResponse->dataResponse(null, -1, "Unable to create Authentication", true);
+                    return;   
+                }
+            }else{
+                $dataResponse->dataResponse(null, -1, "User already exists", true);
+                return;   
+            }//user already exists
+        }else{
+            //displays the page
+            $viewHelper = new cp_view_helper();
+            echo $viewHelper->render($_SERVER['DOCUMENT_ROOT'] . '/P2P/Views/Account/signUp.php', array());  
+            return; 
+        }
+    }
+
+    public function verifyAccount(){
+        $authenticationDao = new cp_authentication_dao();
+        $authId = $_GET['auth'];
+        $resAuthentication = $authenticationDao->getAuthentication($authId);
+        $viewHelper = new cp_view_helper();
+	$status = "V";
+        $approved = true;
+        $utcHelper = new cp_UTCconvertor_helper();
+	$iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");  
+	$android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");  
+	$blackberry = strpos($_SERVER['HTTP_USER_AGENT'],"BlackBerry");  
+	$ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");  
+        if ($resAuthentication['Error'] == false){
+            //if there is no hash password, its not expired
+            if ($resAuthentication['TotalRowsAvailable'] > 0){
+                if ($resAuthentication["TotalRowsAvailable"] > 0){
+                    $authentication = $resAuthentication["Data"][0];
+                    if ($authentication->hash != null || $authentication->hash != ""){
+			$entity = new cp_entity_dao();
+			$email = $authentication->authenticationStringLower;
+			$resEntity = $entity->getEntity(null, $authId);
+			$entityId = $resEntity["Data"][0]->entityId;
+                        $entity->updateEntity(
+                                            $entityId
+                                            , null
+                                            , null
+                                            , null
+                                            , null
+                                            , $status
+                                            , $approved
+                                            , null
+                                            , null
+                                            , null
+                                            , null
+                                            , $utcHelper->getCurrentDateTime()
+                                            );
+
+			if ($iphone || $android || $ipod || $blackberry)  
+			{  
+ 				header('Location: eyeOrcas://');
+			}else{
+				header('Location:../../Activated.php?Email=' . $email);
+			}  
+
+                        return;
+                    }else{
+                        echo $viewHelper->render($_SERVER['DOCUMENT_ROOT'] . '/P2P/Views/Error/invalid.php', array(
+                        "message" => "Invalid Account!"
+                    ));
+                    }
+                }else{
+                    echo $viewHelper->render($_SERVER['DOCUMENT_ROOT'] . '/P2P/Views/Error/invalid.php', array(
+                        "message" => "Invalid Account!"
+                    ));
+                    return;
+                }
+            }else{
+                    echo $viewHelper->render($_SERVER['DOCUMENT_ROOT'] . '/P2P/Views/Error/invalid.php', array(
+                        "message" => "Invalid Account!"
+                    ));
+                    return;
+            }
+        }else{
+            echo $viewHelper->render($_SERVER['DOCUMENT_ROOT'] . '/P2P/Views/Error/invalid.php', array(
+                "message" => "Invalid account!"
+            ));
+            return;
+        }
+    }
+
+    public function resendActivationLink(){
+        $authenticationDao = new cp_authentication_dao();
+        $authId = $_GET['auth'];
+        $resAuthentication = $authenticationDao->getAuthentication($authId);
+            $dataResponse = new cp_resData_helper();
+        if ($resAuthentication['Error'] == false){
+            //if there is no hash password, its not expired
+            if ($resAuthentication['TotalRowsAvailable'] > 0){
+                if ($resAuthentication["TotalRowsAvailable"] > 0){
+                    $authentication = $resAuthentication["Data"][0];
+		    $entity = new cp_entity_dao();
+		    $resEntity = $entity->getEntity(null, $authId);
+
+		    $email = $authentication->authenticationStringLower;
+		    $first_name = $resEntity["Data"][0]->firstName;
+		    $last_name = $resEntity["Data"][0]->lastName;
+
+		    $mail = new cp_mailSender_helper();
+		    $receiverEmail = $email;
+		    $receiverName = $first_name . " " . $last_name;
+
+		    $subject = "Welcome to EyeOrcas";
+		    $htmlBody = "Dear " . $first_name .",<br><br> Thank you for signing up with EyeOrcas<br> ";
+		    $htmlBody .= "<br>Thank you for signing up with us.<br>";
+		    $htmlBody .= "Your username will be " . $email . ".<br><br>";
+		    $htmlBody .= "Verify for your account from this link - ". "http://" . $_SERVER['HTTP_HOST'] . "/P2P/account/verifyAccount?auth=" . $authId;
+		    $htmlBody .= "<br><br>Best Regards,<br>";
+                    $htmlBody .= "Eye Orcas";
+
+                    $mail->sendMail(
+                                            $receiverName
+                                            , $receiverEmail
+                                            , true
+                                            , $subject
+                                            , $htmlBody
+                                            , null
+                                            );
+                    $dataResponse->dataResponse("Email Sent", null, "No Error", false);
+                    return;   
+		}
+	    }
+	}
+
+
+
+    }
+
+
     
     public function retrievePassword(){
         
