@@ -240,7 +240,8 @@ class AccountController
         if (isset($_GET['auth'])){
 	    $OS = null;
             $authId = $_GET['auth'];
-	    if (isset($_GET['OS'])){ $OS = $_GET['OS']; };
+	    if (isset($_GET['OS'])){
+            $OS = $_GET['OS']; };
             $authenticationDao = new cp_authentication_dao();
             $resAuthentication = $authenticationDao->getAuthentication($authId);
             if ($resAuthentication['Error'] == false){
