@@ -41,6 +41,10 @@ $router->add("account", $accountController, "loggedin");
 $router->add("account", $accountController, "success");
 $router->add("account", $accountController, "getEntity");
 $router->add("account", $accountController, "appLogin");
+$router->add("account", $accountController, "appSignup");
+$router->add("account", $accountController, "verifyAccount");
+$router->add("account", $accountController, "resendActivationLink");
+
 
 /* FIX ME, MERGE SET PASSWORD WIT CREATE PASSWORD METHOD */
 $router->add("account", $accountController, "setpassword");
